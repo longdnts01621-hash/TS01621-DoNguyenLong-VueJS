@@ -1,0 +1,36 @@
+<script setup>
+import HelloWorld from './components/HelloWorld.vue'
+import bai1 from './components/bai1.vue'
+import bai2 from './components/bai2.vue'
+import bai3 from './components/bai3.vue'
+import { ref} from'vue'
+import createpost from './components/createpost.vue'
+import listpost from './components/listpost.vue'
+const posts = ref([])
+function postCreated(post) {
+  posts.value.push(post)
+} 
+</script>
+
+<template>
+<div id="app">
+  <h1> Ứng dụng mini</h1>
+  <createpost @postCreated="postCreated" />
+  <listpost :posts="posts"/>
+</div>
+</template>
+
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+}
+</style>
